@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: realestates
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: verde
+    password: PASSWORD
+    url: jdbc:mysql://localhost:3306/realestate
+    name: verde
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  messages:
+    basename: message
