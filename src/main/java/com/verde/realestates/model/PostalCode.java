@@ -11,4 +11,5 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class PostalCode extends BaseEntity{
+    private Long code;
 }

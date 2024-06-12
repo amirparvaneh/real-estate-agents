@@ -11,4 +11,8 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class Customer extends BaseEntity{
+    private String email;
+    private String name;
+    private String address;
+    private String phoneNo;
 }
