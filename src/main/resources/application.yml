@@ -13,3 +13,13 @@ spring:
     show-sql: true
   messages:
     basename: message
+
+google:
+  map:
+    api:
+      key: API_KEY
+
+security:
+  jwt:
+    secret-key: a459654cc535e86c3e4879347aabd02f305b40982a02abfb228def3250d1ad5b
+    expiration-time: 3600000
