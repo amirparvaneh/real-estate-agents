@@ -9,15 +9,12 @@ import com.verde.realestates.model.User;
 import com.verde.realestates.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/auth")
 @RequiredArgsConstructor
-public class AuthController {
+public class AuthenticationController {
 
     private final JwtService jwtService;
     private final AuthenticationService authenticationService;
@@ -31,14 +28,16 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<LoginResDto> authenticateUser(@RequestBody UserLoginReqDto userLoginReqDto) {
         User authenticatedUser = authenticationService.authenticateUser(userLoginReqDto);
-
         String jwtToken = jwtService.generateToken(authenticatedUser);
-
         LoginResDto loginResponse = LoginResDto.builder()
                 .token(jwtToken)
                 .expiresIn(jwtService.getExpirationTime())
                 .build();
-
         return ResponseEntity.ok(loginResponse);
+    }
+
+    @GetMapping("/test")
+    public String getString(){
+        return "hi";
     }
 }
