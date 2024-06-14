@@ -7,7 +7,7 @@ import com.verde.realestates.model.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface AuthService {
+public interface AuthenticationService {
     User registerUser(UserRegistrationReqDto userRegistrationReqDto);
     User authenticateUser(UserLoginReqDto userLoginReqDto);
 }
