@@ -12,7 +12,7 @@ import java.io.Serializable;
 public class UserLoginReqDto implements Serializable {
 
     @NotNull
-    private String userName;
+    private String username;
     @NotNull
     private String password;
 }

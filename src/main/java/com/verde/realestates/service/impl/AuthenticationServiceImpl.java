@@ -35,13 +35,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public User authenticateUser(UserLoginReqDto userLoginReqDto) {
-        User user = userRepository.findUserByUsername(userLoginReqDto.getUserName())
-                .orElseThrow(() -> new UserException("User not found for username: " + userLoginReqDto.getUserName()
-                        , userLoginReqDto.getUserName()));
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-                userLoginReqDto.getUserName(),
+                userLoginReqDto.getUsername(),
                 userLoginReqDto.getPassword()
         ));
-        return user;
+        return userRepository.findUserByUsername(userLoginReqDto.getUsername())
+                .orElseThrow(() -> new UserException("User not found for username: " + userLoginReqDto.getUsername()
+                        , userLoginReqDto.getUsername()));
     }
 }
