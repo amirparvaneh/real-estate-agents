@@ -28,14 +28,14 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastName(userRegistrationReqDto.getLastName())
                 .email(userRegistrationReqDto.getEmail())
                 .password(passwordEncoder.encode(userRegistrationReqDto.getPassword()))
-                .userName(userRegistrationReqDto.getUserName())
+                .username(userRegistrationReqDto.getUserName())
                 .build();
          return UserMapper.INSTANCE.userToRegisterUserDto(userRepository.save(user));
     }
 
     @Override
     public User authenticateUser(UserLoginReqDto userLoginReqDto) {
-        User user = userRepository.findUserByUserName(userLoginReqDto.getUserName())
+        User user = userRepository.findUserByUsername(userLoginReqDto.getUserName())
                 .orElseThrow(() -> new UserException("User not found for username: " + userLoginReqDto.getUserName()
                         , userLoginReqDto.getUserName()));
         authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
