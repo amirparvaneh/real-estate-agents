@@ -2,17 +2,33 @@ spring:
   application:
     name: realestates
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: verde
-    password: PASSWORD
-    url: jdbc:mysql://localhost:3306/realestate
-    name: verde
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:mem:verde
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
-  messages:
-    basename: message
+    database-platform: org.hibernate.dialect.H2Dialect
+  h2:
+    console:
+      enabled: true
+#spring:
+#  application:
+#    name: realestates
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    username: verde
+#    password: PASSWORD
+#    url: jdbc:mysql://localhost:3306/realestate
+#    name: verde
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#  messages:
+#    basename: message
 
 google:
   map:

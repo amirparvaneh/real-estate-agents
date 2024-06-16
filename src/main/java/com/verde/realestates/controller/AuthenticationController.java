@@ -5,10 +5,11 @@ import com.verde.realestates.auth.JwtService;
 import com.verde.realestates.dto.request.UserLoginReqDto;
 import com.verde.realestates.dto.request.UserRegistrationReqDto;
 import com.verde.realestates.dto.response.BaseResponse;
-import com.verde.realestates.dto.response.LoginResDto;
+import com.verde.realestates.dto.response.UserLoginResDto;
 import com.verde.realestates.dto.response.RegisterUserResDto;
 import com.verde.realestates.model.User;
 import com.verde.realestates.service.AuthenticationService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +24,7 @@ public class AuthenticationController {
     private final AuthenticationService authenticationService;
 
     @PostMapping("/register")
-    public ResponseEntity<BaseResponse<RegisterUserResDto>> registerUser(@RequestBody UserRegistrationReqDto registerUserDto) {
+    public ResponseEntity<BaseResponse<RegisterUserResDto>> registerUser(@RequestBody @Valid UserRegistrationReqDto registerUserDto) {
         RegisterUserResDto registerUserResDto = authenticationService.registerUser(registerUserDto);
         BaseResponse<RegisterUserResDto> response = BaseResponse.<RegisterUserResDto>builder()
                 .message("successfully registered")
@@ -32,10 +33,10 @@ public class AuthenticationController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResDto> authenticateUser(@RequestBody UserLoginReqDto userLoginReqDto) {
+    public ResponseEntity<UserLoginResDto> authenticateUser(@RequestBody UserLoginReqDto userLoginReqDto) {
         User authenticatedUser = authenticationService.authenticateUser(userLoginReqDto);
         String jwtToken = jwtService.generateToken(authenticatedUser);
-        LoginResDto loginResponse = LoginResDto.builder()
+        UserLoginResDto loginResponse = UserLoginResDto.builder()
                 .token(jwtToken)
                 .expiresIn(jwtService.getExpirationTime())
                 .build();
