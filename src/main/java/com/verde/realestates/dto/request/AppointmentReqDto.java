@@ -1,20 +1,19 @@
-package com.verde.realestates.model;
+package com.verde.realestates.dto.request;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import jakarta.persistence.Entity;
-import lombok.*;
-
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-@EqualsAndHashCode(callSuper = true)
+
 @Data
-@Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Appointment extends BaseEntity {
-
-    private final Integer duration = 1;
+public class AppointmentReqDto implements Serializable {
     private LocalDateTime date;
     private String address;
     private String customerFirstName;
@@ -22,4 +21,5 @@ public class Appointment extends BaseEntity {
     private String customerEmail;
     private String customerAddress;
     private String customerPhoneNumber;
+
 }

@@ -1,7 +1,6 @@
 package com.verde.realestates.model;
 
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import lombok.*;
 
@@ -12,9 +11,9 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 public class Customer extends BaseEntity{
-    @Column(nullable = false,unique = true)
-    private String email;
-    private String name;
-    private String address;
-    private String phoneNo;
+    private String customerFirstName;
+    private String customerLastName;
+    private String customerEmail;
+    private String customerAddress;
+    private String customerPhoneNumber;
 }
