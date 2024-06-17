@@ -28,7 +28,6 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .lastName(userRegistrationReqDto.getLastName())
                 .email(userRegistrationReqDto.getEmail())
                 .password(passwordEncoder.encode(userRegistrationReqDto.getPassword()))
-                .username(userRegistrationReqDto.getUserName())
                 .build();
          return UserMapper.INSTANCE.userToRegisterUserDto(userRepository.save(user));
     }
@@ -39,7 +38,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 userLoginReqDto.getUsername(),
                 userLoginReqDto.getPassword()
         ));
-        return userRepository.findUserByUsername(userLoginReqDto.getUsername())
+        return userRepository.findUserByEmail(userLoginReqDto.getUsername())
                 .orElseThrow(() -> new UserException("User not found for username: " + userLoginReqDto.getUsername()
                         , userLoginReqDto.getUsername()));
     }

@@ -20,10 +20,8 @@ public class UserRegistrationReqDto implements Serializable {
     @NotNull
     private String lastName;
     @NotNull
-    @Email
+    @Email(message = "not valid email form")
     private String email;
-    @NotNull
-    private String userName;
     @NotNull
     private String password;
 }
