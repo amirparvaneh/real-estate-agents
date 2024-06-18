@@ -7,6 +7,8 @@ import com.verde.realestates.model.Appointment;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface AppointmentMapper {
 
@@ -14,4 +16,5 @@ public interface AppointmentMapper {
 
     Appointment appointmentReqDtoToAppointment(AppointmentReqDto appointmentReqDto);
     AppointmentResDto appointmentToAppointmentResDto(Appointment appointment);
+    List<AppointmentResDto> listOfAppointmentToListOfAppointmentResDto(List<Appointment> appointments);
 }

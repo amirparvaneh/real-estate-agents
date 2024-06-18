@@ -9,5 +9,5 @@ import java.util.List;
 
 public interface AppointmentService {
     AppointmentResDto addNewAppointment(AppointmentReqDto appointmentDto);
-    List<Appointment> getAllAppointment();
+    List<AppointmentResDto> getAllAppointment();
 }

@@ -26,7 +26,7 @@ public class AppointmentServiceImpl implements AppointmentService {
     }
 
     @Override
-    public List<Appointment> getAllAppointment() {
-        return appointmentRepository.findAll();
+    public List<AppointmentResDto> getAllAppointment() {
+        return AppointmentMapper.INSTANCE.listOfAppointmentToListOfAppointmentResDto(appointmentRepository.findAll());
     }
 }
