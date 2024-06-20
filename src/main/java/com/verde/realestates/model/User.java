@@ -27,6 +27,8 @@ public class User extends BaseEntity implements UserDetails {
     private String password;
     @Column(unique = true, nullable = false)
     private String email;
+    @Column(nullable = false)
+    private String postalCode;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

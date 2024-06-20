@@ -2,6 +2,8 @@ package com.verde.realestates.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -14,12 +16,19 @@ import java.time.LocalDateTime;
 @Builder
 public class Appointment extends BaseEntity {
 
-    private final Integer duration = 1;
-    private LocalDateTime date;
-    private String address;
-    private String customerFirstName;
-    private String customerLastName;
-    private String customerEmail;
-    private String customerAddress;
-    private String customerPhoneNumber;
+
+    private String appointmentAddress;
+    private String appointmentPostalCode;
+    private LocalDateTime appointmentDate;
+    private Long distanceToOffice;
+    private LocalDateTime departureTime;
+    private LocalDateTime returnTime;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 }
