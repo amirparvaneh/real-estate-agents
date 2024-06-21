@@ -4,7 +4,7 @@ package com.verde.realestates.controller;
 import com.verde.realestates.dto.request.AppointmentReqDto;
 import com.verde.realestates.dto.response.AppointmentResDto;
 import com.verde.realestates.dto.response.BaseResponse;
-import com.verde.realestates.externalapi.dto.PostCodeResponse;
+import com.verde.realestates.externalapi.dto.PostcodeResponse;
 import com.verde.realestates.externalapi.service.PostcodeService;
 import com.verde.realestates.service.AppointmentService;
 import lombok.RequiredArgsConstructor;
@@ -32,10 +32,10 @@ public class AppointmentController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/validate-postcode/{postcode}")
-    public ResponseEntity<BaseResponse<PostCodeResponse>> getPostCode(@PathVariable String postcode){
-        PostCodeResponse postCodeResponse = postcodeService.callExternalPostcode(postcode);
-        BaseResponse<PostCodeResponse> response = BaseResponse.<PostCodeResponse>builder()
+    @GetMapping(value = "/validate-postcode/{postcode}")
+    public ResponseEntity<BaseResponse<PostcodeResponse>> getPostCode(@PathVariable String postcode){
+        PostcodeResponse postCodeResponse = postcodeService.callExternalPostcode(postcode);
+        BaseResponse<PostcodeResponse> response = BaseResponse.<PostcodeResponse>builder()
                 .message("return response of postcode")
                 .result(postCodeResponse)
                 .build();

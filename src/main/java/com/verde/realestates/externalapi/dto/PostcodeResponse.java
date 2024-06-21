@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class PostCodeResponse {
+public class PostcodeResponse {
     private Integer status;
     private List<PostCode> result;
 }

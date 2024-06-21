@@ -1,7 +1,7 @@
 package com.verde.realestates.externalapi;
 
 
-import com.verde.realestates.externalapi.dto.PostCodeResponse;
+import com.verde.realestates.externalapi.dto.PostcodeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,5 +10,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface FeignPostcode {
 
     @GetMapping(value = "/{postcode}")
-    PostCodeResponse getPostalCode(@PathVariable(value = "postcode") String postcode);
+    PostcodeResponse getPostalCode(@PathVariable(value = "postcode") String postcode);
 }
