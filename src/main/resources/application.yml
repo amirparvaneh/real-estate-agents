@@ -28,4 +28,4 @@ security:
 uk:
   postcode:
     api:
-      url: api.postcodes.io/postcodes/
+      url: http://api.postcodes.io/postcodes
