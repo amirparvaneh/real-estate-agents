@@ -1,11 +1,13 @@
 package com.verde.realestates.externalapi.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+
 
 
 @Data
@@ -13,6 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class PostcodeResponse {
+    @JsonProperty
     private Integer status;
-    private List<PostCode> result;
+    @JsonProperty
+    private PostCode result;
 }

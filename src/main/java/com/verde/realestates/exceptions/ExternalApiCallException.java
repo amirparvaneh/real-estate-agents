@@ -7,7 +7,7 @@ public class ExternalApiCallException extends BusinessException{
 
     public ExternalApiCallException(String postcode){
         super(new ErrorResponse(
-                "calling the api is confront with error",
+                "calling the api confronted with error",
                 HttpStatus.CONFLICT,
                 postcode
         ));
