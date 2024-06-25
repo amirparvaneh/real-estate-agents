@@ -14,7 +14,5 @@ public interface AppointmentMapper {
 
     AppointmentMapper INSTANCE = Mappers.getMapper(AppointmentMapper.class);
 
-    Appointment appointmentReqDtoToAppointment(AppointmentReqDto appointmentReqDto);
-    AppointmentResDto appointmentToAppointmentResDto(Appointment appointment);
     List<AppointmentResDto> listOfAppointmentToListOfAppointmentResDto(List<Appointment> appointments);
 }

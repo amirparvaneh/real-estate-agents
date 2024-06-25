@@ -22,7 +22,8 @@ public class AppointmentReqDto implements Serializable {
     private String customerAddress;
     private String customerPhoneNumber;
 
-    private String postalCode;
+    private String appointmentPostalCode;
     private String userPostalCode;
+    private String userEmail;
 
 }
