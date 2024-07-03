@@ -11,4 +11,7 @@ public interface FeignPostcode {
 
     @GetMapping(value = "/{postcode}")
     PostcodeResponse getPostalCode(@PathVariable(value = "postcode") String postcode);
+
+    @GetMapping(value = "/{realtor}")
+    PostcodeResponse getRealtorLocation(@PathVariable(value = "realtor") String realtor);
 }
