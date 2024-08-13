@@ -23,7 +23,7 @@ public class GeographicalServiceImpl implements GeographicalService {
 
     @Override
     public PostcodeResponse getRealtorLocation() {
-        try{
+        try {
             return feignPostcode.getRealtorLocation(realtorPostCode);
         } catch (Exception e) {
             throw new ExternalApiCallException(realtorPostCode);
@@ -38,7 +38,13 @@ public class GeographicalServiceImpl implements GeographicalService {
 
     @Override
     public Long getDistanceToOffice(String appointmentPostcode) {
-        return null;
+        PostcodeResponse appointmentLocation;
+        PostcodeResponse realtorLocation = getRealtorLocation();
+        try {
+            appointmentLocation = feignPostcode.getPostalCode(appointmentPostcode);
+        } catch (Exception e) {
+            throw new ExternalApiCallException(appointmentPostcode);
+        }
     }
 
 
